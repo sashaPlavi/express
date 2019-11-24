@@ -33,6 +33,8 @@ router.post("/", (req, res) => {
   }
   members.push(NewMember);
   res.json(members);
+  //redirect is used by handlebars to render new member on the page
+  //res.redirect("/");
 });
 // udate member
 router.put("/:id", (req, res) => {

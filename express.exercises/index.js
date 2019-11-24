@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
+const members = require("./members");
 
 const loger = require("./midleware/loger");
 const app = express();
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
 */
 //seting routs for handlebars
 app.get("/", (req, res) => {
-  res.render("index", { title: "member app" });
+  res.render("index", { title: "member app", members });
 });
 // set static folder
 
