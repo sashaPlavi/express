@@ -1,9 +1,12 @@
 const express = require("express");
 const path = require("path");
+const handlebar = require("express-handlebars");
 
-//const loger = require("./midleware/loger");
-
+const loger = require("./midleware/loger");
 const app = express();
+//expres midleware
+app.engine("handlebars", handlebar({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 //body parser midleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,6 +19,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 */
+//seting routs for handlebars
+app.get("/", (req, res) => {
+  res.render("index");
+});
 // set static folder
 
 app.use(express.static(path.join(__dirname, "public")));
